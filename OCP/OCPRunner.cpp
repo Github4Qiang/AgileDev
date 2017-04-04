@@ -2,9 +2,9 @@
 // Created by Polylanger on 2017/4/3.
 //
 
-#include "LSPRunner.h"
+#include "OCPRunner.h"
 
-void DrawAssShapes(vector<Shape *> &list) {
+void DrawAllShapes(vector<Shape *> &list) {
     vector<Shape *> orderedList = list;
     sort(orderedList.begin(), orderedList.end(), LessP<Shape *>());
     vector<Shape *>::iterator iter;
@@ -13,7 +13,7 @@ void DrawAssShapes(vector<Shape *> &list) {
     }
 }
 
-void Run() {
+void OCPRunner::Run() {
     vector<Shape *> list = vector<Shape *>();
     list.push_back(new Square());
     list.push_back(new Circle());
@@ -23,5 +23,5 @@ void Run() {
     list.push_back(new Circle());
     list.push_back(new Square());
     list.push_back(new Circle());
-    DrawAssShapes(list);
+    DrawAllShapes(list);
 }

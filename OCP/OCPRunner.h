@@ -2,8 +2,8 @@
 // Created by Polylanger on 2017/4/3.
 //
 
-#ifndef AGILEDEV_LSPRUNNER_H
-#define AGILEDEV_LSPRUNNER_H
+#ifndef AGILEDEV_OCPRUNNER_H
+#define AGILEDEV_OCPRUNNER_H
 
 #include "TableDrivedShape.h"
 #include <vector>
@@ -17,8 +17,12 @@ public:
     }
 };
 
-void DrawAssShapes(vector<Shape *> &list);
+void DrawAllShapes(vector<Shape *> &list);
 
-void Run();
 
-#endif //AGILEDEV_LSPRUNNER_H
+class OCPRunner {
+public:
+    void Run();
+};
+
+#endif //AGILEDEV_OCPRUNNER_H
