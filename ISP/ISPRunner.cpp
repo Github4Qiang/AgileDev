@@ -3,7 +3,6 @@
 //
 
 #include "ISPRunner.h"
-#include <thread>
 
 //void ISPRunner::Run() {
 //    // 定义初始状态是“关”的门
@@ -18,26 +17,13 @@
 //}
 
 void ISPRunner::Run() {
-    ATMClient client = ATMClient();
-    client.Deposit();
-    client.Transfer();
-    client.Withdrawal();
-}
+    ATMUI ui = ATMUI();
+    DepositTransaction deposit(ui);
+    TransferTransaction transfer(ui);
+    WithdrawalTransaction withdrawal(ui);
 
-ATMClient::ATMClient() {
-    deposit = DepositTransaction();
-    transfer = TransferTransaction();
-    withdrawal = WithdrawalTransaction();
-}
-
-void ATMClient::Deposit() {
     deposit.Execute();
-}
-
-void ATMClient::Transfer() {
     transfer.Execute();
-}
-
-void ATMClient::Withdrawal() {
     withdrawal.Execute();
 }
+

@@ -13,22 +13,33 @@ using namespace std;
 
 class ATMTransaction {
 public:
-    vector<ATMUI *> aTMUI = {new ScreenUI(), new BrailleUI(), new SpeechUI()};
-
     virtual void Execute() = 0;
 };
 
 class DepositTransaction : public ATMTransaction {
+private:
+    DepositUI &depositUI;
 public:
+    DepositTransaction(DepositUI &depositUI);
+
     void Execute() override;
 };
 
 class WithdrawalTransaction : public ATMTransaction {
+private:
+    WithdrawalUI &withdrawalUI;
 public:
+    WithdrawalTransaction(WithdrawalUI &withdrawalUI);
+
     void Execute() override;
 };
 
 class TransferTransaction : public ATMTransaction {
+private:
+    TransferUI &transferUI;
+public:
+    TransferTransaction(TransferUI &transferUI);
+
 public:
     void Execute() override;
 };

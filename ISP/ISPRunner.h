@@ -15,19 +15,4 @@ public:
     void Run();
 };
 
-class ATMClient {
-private:
-    DepositTransaction deposit;
-    TransferTransaction transfer;
-    WithdrawalTransaction withdrawal;
-public:
-    ATMClient();
-
-    void Deposit();
-
-    void Transfer();
-
-    void Withdrawal();
-};
-
 #endif //AGILEDEV_ISPRUNNER_H

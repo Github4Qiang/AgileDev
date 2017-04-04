@@ -9,46 +9,30 @@
 
 using namespace std;
 
-class ATMUI {
+class DepositUI {
 public:
     virtual void RequestDepositAmount() = 0;
+};
 
+class TransferUI {
+public:
+    virtual void RequestTransferAmount() = 0;
+};
+
+class WithdrawalUI {
+public:
     virtual void RequestWithdrawAmount() = 0;
-
-    virtual void RequestTransderAmount() = 0;
 
     virtual void InformInsuffientFunts() = 0;
 };
 
-class ScreenUI : public ATMUI {
+class ATMUI : public TransferUI, public WithdrawalUI, public DepositUI {
 public:
     void RequestDepositAmount() override;
 
-    void RequestWithdrawAmount() override;
-
-    void RequestTransderAmount() override;
-
-    void InformInsuffientFunts() override;
-};
-
-class BrailleUI : public ATMUI {
-public:
-    void RequestDepositAmount() override;
+    void RequestTransferAmount() override;
 
     void RequestWithdrawAmount() override;
-
-    void RequestTransderAmount() override;
-
-    void InformInsuffientFunts() override;
-};
-
-class SpeechUI : public ATMUI {
-public:
-    void RequestDepositAmount() override;
-
-    void RequestWithdrawAmount() override;
-
-    void RequestTransderAmount() override;
 
     void InformInsuffientFunts() override;
 };
